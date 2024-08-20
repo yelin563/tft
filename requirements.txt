@@ -1,5 +1,4 @@
 streamlit==1.22
 pandas
 matplotlib
-
-git+https://github.com/streamlit/gsheets-connection
+st-gsheets-connection
