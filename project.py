@@ -2,8 +2,8 @@
 
 import streamlit as st
 import pandas as pd
-from PIL import Image
-import folium
+
+
 import random
 import requests
 import matplotlib.pyplot as plt
