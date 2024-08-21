@@ -12,7 +12,7 @@ import numpy as np
 
 st.set_page_config(layout="wide")
 
-st.header('우리반 측정소')
+st.header('수락중 2학년 전략들')
 
 
 
