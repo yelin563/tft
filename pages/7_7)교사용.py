@@ -22,7 +22,7 @@ if st.button('새로고침'):
     
     conn = st.connection("gsheets", type=GSheetsConnection)
     rdf = conn.read(
-    worksheet="response4",
+    worksheet="response1",
     ttl="1s",
     usecols=[0,1,2,3],
     nrows=100
