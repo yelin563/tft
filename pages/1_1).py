@@ -27,7 +27,7 @@ if st.button('제출하기'):
         st.write('첫 페이지의 위에 학번 이름을 입력해주세요')
     else:
         conn = st.connection("gsheets", type=GSheetsConnection)
-        df1 = conn.read(
+        df1 = conn.read(spreadsheet="pets",
         worksheet="response1",
         ttl="1s",
         usecols=[0, 1],
