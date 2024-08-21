@@ -1,17 +1,14 @@
 import streamlit as st
 import pandas as pd
-from PIL import Image
 
 
-import matplotlib
-import matplotlib.pyplot as plt
 
 from streamlit_gsheets import GSheetsConnection
 import requests
 
 import numpy as np
 
-import geopandas as gpd
+
 
 st.set_page_config(layout="wide")
 
