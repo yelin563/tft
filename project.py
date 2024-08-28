@@ -177,7 +177,7 @@ def tournament(lst1,lst2):
 def name():
     
     num = st.text_input("예:20123홍길동")
-    newnum = re.sub(r'\s+', '', num)
+    newnum = num.replace(" ", "")
     if st.button("제출하기"):
         st.session_state.name = newnum
         st.rerun()
