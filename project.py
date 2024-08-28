@@ -266,7 +266,7 @@ with col2:
             lst1.append(n6)
             lst2.append('배신한 따라쟁이')
         if n7>0:
-            lst1.append(n6)
+            lst1.append(n7)
             lst2.append('반대 따라쟁이')
             
         if len(lst1)>1:
