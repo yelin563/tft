@@ -187,7 +187,7 @@ if "name" not in st.session_state:
         name()
   
 else:
-    f"학번 이름: {st.session_state.vote['name']}"
+    f"학번 이름: {st.session_state.name}"
 
 #if 'name' not in st.session_state:
     #st.session_state['name']='N'
