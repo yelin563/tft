@@ -30,7 +30,7 @@ if st.button('제출하기'):
         df1 = conn.read(spreadsheet="https://docs.google.com/spreadsheets/d/1kOEltiz9y8b5HCuFegEAyfUbfo95xYrdPlh59GB3EhU/edit?gid=1194618377#gid=1194618377",
         worksheet="response1",
         ttl="1s",
-        usecols=[0, 1],
+        usecols=[0, 1,2,3],
         nrows=100
         )  
         df1 = df1.dropna(axis=0)
