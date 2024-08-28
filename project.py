@@ -175,8 +175,8 @@ def tournament(lst1,lst2):
 
 @st.dialog("학번이름을 입력해주세요")
 def name():
-    st.write("예:20123홍길동")
-    num = st.text_input("학번이름을 입력해주세요")
+    
+    num = st.text_input("예:20123홍길동")
     if st.button("제출하기"):
         st.session_state.name = num
         st.rerun()
