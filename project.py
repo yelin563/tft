@@ -173,16 +173,29 @@ def tournament(lst1,lst2):
     
   return pd.DataFrame({'전략':tl,'총점':res})
 
+@st.dialog("학번이름을 입력해주세요")
+def name():
+    st.write("예:20123홍길동")
+    num = st.text_input("학번이름을 입력해주세요")
+    if st.button("제출하기"):
+        st.session_state.name = num
+        st.rerun()
 
+if "name" not in st.session_state:
+    st.write("아래 버튼을 눌러 학번이름을 제출해주세요.")
+    if st.button("학번입력하기"):
+        name()
+  
+else:
+    f"학번 이름: {st.session_state.vote['name']}"
 
-
-if 'name' not in st.session_state:
-    st.session_state['name']='N'
+#if 'name' not in st.session_state:
+    #st.session_state['name']='N'
     
-if st.session_state['name']=='N':
-    num=st.text_input('학번이름을 입력해주세요')
-    if num:
-        st.session_state['name']=num
+#if st.session_state['name']=='N':
+    #num=st.text_input('학번이름을 입력해주세요')
+    #if num:
+        #st.session_state['name']=num
 st.title("협력 게임")
 st.write(r'''<span style="font-size: 20px;">$\textsf{[학습목표] 협력 게임의 전략을 선택해보고 어떤 전략이 가장 점수가 높을 확률이 큰지 알아보자.}$</span>''', unsafe_allow_html=True)
 
