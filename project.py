@@ -218,7 +218,7 @@ col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'>항상협력자
 col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'>따라쟁이를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
 col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'>배신한 따라쟁이를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
 col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'>원한을 가진 자를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
-col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'>반대 따라쟁이를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
+#col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'>반대 따라쟁이를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
 col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'>항상배신자를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
 col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'>랜덤을 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
 col0.markdown("<p style='margin-top: 10px;'>한 상대와 몇 라운드를 진행할까요?</p>", unsafe_allow_html=True)
@@ -228,7 +228,7 @@ with col1:
     n2 = st.number_input(" ",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label_visibility="collapsed")
     n6 = st.number_input(placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n6',label_visibility="collapsed")
     n3 = st.number_input(placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n3',label_visibility="collapsed")
-    n7 = st.number_input(placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n7',label_visibility="collapsed")
+    #n7 = st.number_input(placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n7',label_visibility="collapsed")
     n4 = st.number_input(placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n4',label_visibility="collapsed")
     n5 = st.number_input(placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n5',label_visibility="collapsed")
     gn= st.number_input(placeholder="라운드 수를 작성하세요.", min_value=5, max_value=50, step=1, value=5,label='gn',label_visibility="collapsed")
@@ -265,9 +265,9 @@ with col2:
         if n6>0:
             lst1.append(n6)
             lst2.append('배신한 따라쟁이')
-        if n7>0:
-            lst1.append(n7)
-            lst2.append('반대 따라쟁이')
+        #if n7>0:
+            #lst1.append(n7)
+            #lst2.append('반대 따라쟁이')
             
         if len(lst1)>1:
             
