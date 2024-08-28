@@ -27,7 +27,8 @@ if st.button('새로고침'):
     usecols=[0,1,2,3],
     nrows=100
     )  
-    st.session_state.rdf = rdf
+    st.session_state.rdf = rdf.drop_duplicates(subset='학번', keep='last')
+
 
 rdf = st.session_state.get('rdf', pd.DataFrame())
 if len(rdf)>0 :
