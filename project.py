@@ -214,14 +214,14 @@ st.divider()
 
 col0,col1, col2 = st.columns([1, 1,1])
 
-col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'>항상협력자를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
-col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'>따라쟁이를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
-col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'>배신한 따라쟁이를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
-col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'>원한을 가진 자를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
+col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>항상협력자</strong>를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
+col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>따라쟁이</strong>를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
+col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>배신한 따라쟁이</strong>를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
+col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>원한을 가진 자</strong>를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
 #col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'>반대 따라쟁이를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
-col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'>항상배신자를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
-col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'>랜덤을 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
-col0.markdown("<p style='margin-top: 10px;'>한 상대와 몇 라운드를 진행할까요?</p>", unsafe_allow_html=True)
+col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>항상배신자</strong>를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
+col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>랜덤</strong>을 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
+col0.markdown("<p style='margin-top: 10px;'>한 상대와 몇 <strong>라운드</strong>를 진행할까요?</p>", unsafe_allow_html=True)
 
 with col1:
     n1 = st.number_input("",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label_visibility="collapsed")
