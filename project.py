@@ -151,7 +151,7 @@ def IPDGame(Strategy1,Strategy2,p1,p2,k):
         if(Strategy2 == '원한을 가진 자'):
             p2[i] = hatred(p2,p1,i)
         if(Strategy2 == '배신한 원한을 가진 자'):
-            p1[i] = Suspicious_hatred(p1,p2,i)
+            p2[i] = Suspicious_hatred(p2,p1,i)
 
         if(Strategy2 == 'Naive Prober'):
             p2[i] = Naive_Prober(p2,p1,i)
