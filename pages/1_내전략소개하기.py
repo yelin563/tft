@@ -23,7 +23,7 @@ option = st.selectbox("자신의 전략에서 첫 수는 협력인가요 배신�
     ("협력", "배신"),)
 score=st.number_input("나의 평균 점수를 입력해주세요(반올림하여 자연수로 입력해주세요).",placeholder="나의 평균 점수를 입력해주세요(반올림하여 자연수로 입력해주세요).", min_value=0, step=1, value=0)
 if st.button('제출하기'):
-    if st.session_state['name']=='N':
+    if "name" not in st.session_state:
         st.write('첫 페이지의 위에 학번 이름을 입력해주세요')
     else:
         conn = st.connection("gsheets", type=GSheetsConnection)
