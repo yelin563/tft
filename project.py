@@ -180,10 +180,9 @@ def tournament(lst1,lst2):
   for j in range(len(tl)):
     temp=0
     for i in range(len(tl)):
-      
-      temp+=IPDGame(tl[j],tl[i],p1,p2,gn)[0]
-      if i==j:
-        temp+=-IPDGame(tl[j],tl[i],p1,p2,gn)[0]
+      if i!=j:
+          temp+=IPDGame(tl[j],tl[i],p1,p2,gn)[0]
+
       
     res.append(temp)
     
