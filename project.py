@@ -233,7 +233,7 @@ col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>항상�
 col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>따라쟁이</strong>를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
 col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>배신한 따라쟁이</strong>를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
 col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>원한을 가진 자</strong>를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
-col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'>배신한 원한을 가진 자를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
+col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>배신한 원한을 가진 자</strong>를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
 col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>항상배신자</strong>를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
 col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>랜덤</strong>을 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
 col0.markdown("<p style='margin-top: 10px;'>한 상대와 몇 <strong>라운드</strong>를 진행할까요?</p>", unsafe_allow_html=True)
