@@ -282,8 +282,8 @@ with col2:
             lst1.append(n6)
             lst2.append('배신한 따라쟁이')
         if n7>0:
-            #lst1.append(n7)
-            #lst2.append('배신한 원한을 가진 자')
+            lst1.append(n7)
+            lst2.append('배신한 원한을 가진 자')
             
         if len(lst1)>1:
             
