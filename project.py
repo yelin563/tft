@@ -232,14 +232,14 @@ col1, col2 = st.columns([1,1])
 
 
 with col1:
-    n1 = st.number_input("항상협력자",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label_visibility="collapsed")
-    n2 = st.number_input("항상협력자1",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label_visibility="collapsed")
-    n6 = st.number_input("항상협력자2",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n6',label_visibility="collapsed")
-    n3 = st.number_input("항상협력자3",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n3',label_visibility="collapsed")
-    n7 = st.number_input("항상협력자4",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n7',label_visibility="collapsed")
-    n4 = st.number_input("항상협력자5",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n4',label_visibility="collapsed")
-    n5 = st.number_input("항상협력자6",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n5',label_visibility="collapsed")
-    gn= st.number_input("항상협력자7",placeholder="라운드 수를 작성하세요.", min_value=5, max_value=50, step=1, value=5,label='gn',label_visibility="collapsed")
+    n1 = st.number_input("항상협력자",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
+    n2 = st.number_input("항상협력자1",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
+    n6 = st.number_input("항상협력자2",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n6')
+    n3 = st.number_input("항상협력자3",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n3')
+    n7 = st.number_input("항상협력자4",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n7')
+    n4 = st.number_input("항상협력자5",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n4')
+    n5 = st.number_input("항상협력자6",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n5')
+    gn= st.number_input("항상협력자7",placeholder="라운드 수를 작성하세요.", min_value=5, max_value=50, step=1, value=5,label='gn')
     
 b1= st.button('결과 확인하기')
 with col2:
