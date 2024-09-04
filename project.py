@@ -228,26 +228,18 @@ if 'cumulative_results' not in st.session_state:
   
 st.divider()
 
-col0,col1, col2 = st.columns([1, 1,1])
+col1, col2 = st.columns([1, 1,1])
 
-col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>항상협력자</strong>를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
-col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>따라쟁이</strong>를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
-col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>배신한 따라쟁이</strong>를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
-col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>원한을 가진 자</strong>를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
-col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>배신한 원한을 가진 자</strong>를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
-col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>항상배신자</strong>를 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
-col0.markdown("<p style='margin-top: 10px; margin-bottom: 20px;'><strong>랜덤</strong>을 몇 명으로 설정할까요?</p>", unsafe_allow_html=True)
-col0.markdown("<p style='margin-top: 10px;'>한 상대와 몇 <strong>라운드</strong>를 진행할까요?</p>", unsafe_allow_html=True)
 
 with col1:
-    n1 = st.number_input("",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label_visibility="collapsed")
-    n2 = st.number_input(" ",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label_visibility="collapsed")
-    n6 = st.number_input(placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n6',label_visibility="collapsed")
-    n3 = st.number_input(placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n3',label_visibility="collapsed")
-    n7 = st.number_input(placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n7',label_visibility="collapsed")
-    n4 = st.number_input(placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n4',label_visibility="collapsed")
-    n5 = st.number_input(placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n5',label_visibility="collapsed")
-    gn= st.number_input(placeholder="라운드 수를 작성하세요.", min_value=5, max_value=50, step=1, value=5,label='gn',label_visibility="collapsed")
+    n1 = st.number_input("항상협력자",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label_visibility="collapsed")
+    n2 = st.number_input("항상협력자",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label_visibility="collapsed")
+    n6 = st.number_input("항상협력자",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n6',label_visibility="collapsed")
+    n3 = st.number_input("항상협력자",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n3',label_visibility="collapsed")
+    n7 = st.number_input("항상협력자",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n7',label_visibility="collapsed")
+    n4 = st.number_input("항상협력자",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n4',label_visibility="collapsed")
+    n5 = st.number_input("항상협력자",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n5',label_visibility="collapsed")
+    gn= st.number_input("항상협력자",placeholder="라운드 수를 작성하세요.", min_value=5, max_value=50, step=1, value=5,label='gn',label_visibility="collapsed")
     
 b1= st.button('결과 확인하기')
 with col2:
