@@ -239,7 +239,7 @@ with col1:
     n7 = st.number_input("배신한 원한을 가진 자를 몇 명으로 설정할까요?",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
     n4 = st.number_input("항상배신자를 몇 명으로 설정할까요?",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
     n5 = st.number_input("랜덤을 몇 명으로 설정할까요?",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
-    gn= st.number_input("한 상대와 몇 <strong>라운드</strong>를 진행할까요?",placeholder="라운드 수를 작성하세요.", min_value=5, max_value=50, step=1, value=5)
+    gn= st.number_input("한 상대와 몇 라운드를 진행할까요?",placeholder="라운드 수를 작성하세요.", min_value=5, max_value=50, step=1, value=5)
     
 b1= st.button('결과 확인하기')
 
@@ -317,11 +317,11 @@ if b1:
         current_results['Top 10% 여부'] = current_results['총점'] >= top_10_cutoff_current
         with col2:
             # Display the current results with the top 10% check
-            st.write("### 현재 라운드 결과 (상위 10% 체크)")
+            st.write("#### 현재 라운드 결과 (상위 10% 체크)")
             st.dataframe(current_results.sort_values('총점', ascending=False, ignore_index=True), width=500, height=400)
         
         with col3:
-            st.write("### 각 전략이 상위 10%에 속할 확률")
+            st.write("#### 각 전략이 상위 10%에 속할 확률")
             st.dataframe(prob_df.sort_values('Top 10% 확률', ascending=False, ignore_index=True), width=500, height=400)
     else:
         st.write('적어도 두 명은 존재해야 합니다')
