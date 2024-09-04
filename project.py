@@ -228,103 +228,103 @@ if 'cumulative_results' not in st.session_state:
   
 st.divider()
 
-col1, col2 = st.columns([1,1])
+col1, col2,col3 = st.columns([1,1,1])
 
 
 with col1:
-    n1 = st.number_input("항상협력자",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
-    n2 = st.number_input("항상협력자1",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
-    n6 = st.number_input("항상협력자2",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
-    n3 = st.number_input("항상협력자3",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
-    n7 = st.number_input("항상협력자4",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
-    n4 = st.number_input("항상협력자5",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
-    n5 = st.number_input("항상협력자6",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
-    gn= st.number_input("항상협력자7",placeholder="라운드 수를 작성하세요.", min_value=5, max_value=50, step=1, value=5)
+    n1 = st.number_input("항상협력자를 몇 명으로 설정할까요?",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
+    n2 = st.number_input("따라쟁이를 몇 명으로 설정할까요?",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
+    n6 = st.number_input("배신한 따라쟁이를 몇 명으로 설정할까요?",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
+    n3 = st.number_input("원한을 가진 자를 몇 명으로 설정할까요?",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
+    n7 = st.number_input("배신한 원한을 가진 자를 몇 명으로 설정할까요?",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
+    n4 = st.number_input("항상배신자를 몇 명으로 설정할까요?",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
+    n5 = st.number_input("랜덤을 몇 명으로 설정할까요?",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
+    gn= st.number_input("한 상대와 몇 <strong>라운드</strong>를 진행할까요?",placeholder="라운드 수를 작성하세요.", min_value=5, max_value=50, step=1, value=5)
     
 b1= st.button('결과 확인하기')
-with col2:
-    if b1:
-        lst1=[]
-        lst2=[]
-        row=[]
-        p1 = np.zeros(gn,dtype=int)
-        p2 = np.zeros(gn,dtype=int)
-        if n1>0:
-            lst1.append(n1)
-            lst2.append('항상협력자')
-            
-        if n2>0:
-            lst1.append(n2)
-            lst2.append('따라쟁이')
-            
+
+if b1:
+    lst1=[]
+    lst2=[]
+    row=[]
+    p1 = np.zeros(gn,dtype=int)
+    p2 = np.zeros(gn,dtype=int)
+    if n1>0:
+        lst1.append(n1)
+        lst2.append('항상협력자')
         
-        if n3>0:
-            lst1.append(n3)
-            lst2.append('원한을 가진 자')
-            
-        if n4>0:
-            lst1.append(n4)
-            lst2.append('항상배신자')
-            
-        if n5>0:
-            lst1.append(n5)
-            lst2.append('랜덤')
-            
-        if n6>0:
-            lst1.append(n6)
-            lst2.append('배신한 따라쟁이')
-        if n7>0:
-            lst1.append(n7)
-            lst2.append('배신한 원한을 가진 자')
-            
-        if len(lst1) > 1:
-            # Run the tournament and update cumulative results
-            new_results = tournament(lst1, lst2)
-            
-            # Append the new results to the existing cumulative results
-            st.session_state.cumulative_results = pd.concat([st.session_state.cumulative_results, new_results], ignore_index=True)
-            
-            # Ensure that the '총점' column is numeric before calculating the top 10%
-            st.session_state.cumulative_results['총점'] = pd.to_numeric(st.session_state.cumulative_results['총점'], errors='coerce')
-            
-            # Calculate top 10% cutoff
-            total_strategies = len(st.session_state.cumulative_results)
-            cutoff = int(0.1 * total_strategies) if total_strategies >= 10 else 1
-            top_10_cutoff = st.session_state.cumulative_results['총점'].nlargest(cutoff).min()
+    if n2>0:
+        lst1.append(n2)
+        lst2.append('따라쟁이')
+        
+    
+    if n3>0:
+        lst1.append(n3)
+        lst2.append('원한을 가진 자')
+        
+    if n4>0:
+        lst1.append(n4)
+        lst2.append('항상배신자')
+        
+    if n5>0:
+        lst1.append(n5)
+        lst2.append('랜덤')
+        
+    if n6>0:
+        lst1.append(n6)
+        lst2.append('배신한 따라쟁이')
+    if n7>0:
+        lst1.append(n7)
+        lst2.append('배신한 원한을 가진 자')
+        
+    if len(lst1) > 1:
+        # Run the tournament and update cumulative results
+        new_results = tournament(lst1, lst2)
+        
+        # Append the new results to the existing cumulative results
+        st.session_state.cumulative_results = pd.concat([st.session_state.cumulative_results, new_results], ignore_index=True)
+        
+        # Ensure that the '총점' column is numeric before calculating the top 10%
+        st.session_state.cumulative_results['총점'] = pd.to_numeric(st.session_state.cumulative_results['총점'], errors='coerce')
+        
+        # Calculate top 10% cutoff
+        total_strategies = len(st.session_state.cumulative_results)
+        cutoff = int(0.1 * total_strategies) if total_strategies >= 10 else 1
+        top_10_cutoff = st.session_state.cumulative_results['총점'].nlargest(cutoff).min()
 
-            # Determine top 10% strategies
-            st.session_state.cumulative_results['Top 10%'] = st.session_state.cumulative_results['총점'] >= top_10_cutoff
+        # Determine top 10% strategies
+        st.session_state.cumulative_results['Top 10%'] = st.session_state.cumulative_results['총점'] >= top_10_cutoff
 
-            # Calculate probabilities
-            prob_df = st.session_state.cumulative_results.groupby('전략')['Top 10%'].mean().reset_index()
-            prob_df.columns = ['전략', 'Top 10% 확률']
+        # Calculate probabilities
+        prob_df = st.session_state.cumulative_results.groupby('전략')['Top 10%'].mean().reset_index()
+        prob_df.columns = ['전략', 'Top 10% 확률']
 
-            # Display results
-            #st.write("### 누적 결과")
-            #st.dataframe(st.session_state.cumulative_results.sort_values('총점', ascending=False, ignore_index=True), width=500, height=400)
-            # Run the tournament and get the current round results
-            current_results = tournament(lst1, lst2)
-            
-            # Ensure that the '총점' column is numeric
-            current_results['총점'] = pd.to_numeric(current_results['총점'], errors='coerce')
-            
-            # Calculate top 10% cutoff for the current round
-            total_strategies_current = len(current_results)
-            cutoff_current = int(0.1 * total_strategies_current) if total_strategies_current >= 10 else 1
-            top_10_cutoff_current = current_results['총점'].nlargest(cutoff_current).min()
-            
-            # Add a new column to check if the strategy is in the top 10% for the current round
-            current_results['Top 10% 여부'] = current_results['총점'] >= top_10_cutoff_current
-            
+        # Display results
+        #st.write("### 누적 결과")
+        #st.dataframe(st.session_state.cumulative_results.sort_values('총점', ascending=False, ignore_index=True), width=500, height=400)
+        # Run the tournament and get the current round results
+        current_results = tournament(lst1, lst2)
+        
+        # Ensure that the '총점' column is numeric
+        current_results['총점'] = pd.to_numeric(current_results['총점'], errors='coerce')
+        
+        # Calculate top 10% cutoff for the current round
+        total_strategies_current = len(current_results)
+        cutoff_current = int(0.1 * total_strategies_current) if total_strategies_current >= 10 else 1
+        top_10_cutoff_current = current_results['총점'].nlargest(cutoff_current).min()
+        
+        # Add a new column to check if the strategy is in the top 10% for the current round
+        current_results['Top 10% 여부'] = current_results['총점'] >= top_10_cutoff_current
+        with col1:
             # Display the current results with the top 10% check
             st.write("### 현재 라운드 결과 (상위 10% 체크)")
             st.dataframe(current_results.sort_values('총점', ascending=False, ignore_index=True), width=500, height=400)
-            
-            
+        
+        with col2:
             st.write("### 각 전략이 상위 10%에 속할 확률")
             st.dataframe(prob_df.sort_values('Top 10% 확률', ascending=False, ignore_index=True), width=500, height=400)
-        else:
-            st.write('적어도 두 명은 존재해야 합니다')
+    else:
+        st.write('적어도 두 명은 존재해야 합니다')
 
 
     
