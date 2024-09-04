@@ -223,7 +223,8 @@ st.divider()
 #st.subheader("시뮬레이션")
 st.write(r'''<span style="font-size: 15px;">$\textsf{각 전략의 명 수를 다양하게 설정해보며 어떤 전략이 점수가 높은지 살펴보세요. }$</span>''', unsafe_allow_html=True)
 
-
+if 'cumulative_results' not in st.session_state:
+    st.session_state.cumulative_results = pd.DataFrame(columns=['전략', '총점'])
   
 st.divider()
 
@@ -284,9 +285,31 @@ with col2:
             lst1.append(n7)
             lst2.append('배신한 원한을 가진 자')
             
-        if len(lst1)>1:
+         if len(lst1) > 1:
+            # Run the tournament and update cumulative results
+            new_results = tournament(lst1, lst2)
             
-            st.dataframe(data=tournament(lst1,lst2).sort_values('총점',ascending=False, ignore_index=True),width=500,height=400)
+            # Update cumulative results
+            st.session_state.cumulative_results = pd.concat([st.session_state.cumulative_results, new_results])
+            
+            # Calculate top 10% cutoff
+            total_strategies = len(st.session_state.cumulative_results)
+            cutoff = int(0.1 * total_strategies) if total_strategies >= 10 else 1
+            top_10_cutoff = st.session_state.cumulative_results['총점'].nlargest(cutoff).min()
+
+            # Determine top 10% strategies
+            st.session_state.cumulative_results['Top 10%'] = st.session_state.cumulative_results['총점'] >= top_10_cutoff
+
+            # Calculate probabilities
+            prob_df = st.session_state.cumulative_results.groupby('전략')['Top 10%'].mean().reset_index()
+            prob_df.columns = ['전략', 'Top 10% 확률']
+
+            # Display results
+            st.write("### 누적 결과")
+            st.dataframe(st.session_state.cumulative_results.sort_values('총점', ascending=False, ignore_index=True), width=500, height=400)
+
+            st.write("### 각 전략이 상위 10%에 속할 확률")
+            st.dataframe(prob_df.sort_values('Top 10% 확률', ascending=False, ignore_index=True), width=500, height=400)
         else:
             st.write('적어도 두 명은 존재해야 합니다')
 
