@@ -228,7 +228,7 @@ if 'cumulative_results' not in st.session_state:
   
 st.divider()
 
-col1, col2,col3 = st.columns([1,1,2])
+col1, col2,col3 = st.columns([2,2,3])
 
 
 with col1:
