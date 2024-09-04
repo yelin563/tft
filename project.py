@@ -234,12 +234,12 @@ col1, col2 = st.columns([1,1])
 with col1:
     n1 = st.number_input("항상협력자",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
     n2 = st.number_input("항상협력자1",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
-    n6 = st.number_input("항상협력자2",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n6')
-    n3 = st.number_input("항상협력자3",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n3')
-    n7 = st.number_input("항상협력자4",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n7')
-    n4 = st.number_input("항상협력자5",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n4')
-    n5 = st.number_input("항상협력자6",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0,label='n5')
-    gn= st.number_input("항상협력자7",placeholder="라운드 수를 작성하세요.", min_value=5, max_value=50, step=1, value=5,label='gn')
+    n6 = st.number_input("항상협력자2",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
+    n3 = st.number_input("항상협력자3",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
+    n7 = st.number_input("항상협력자4",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
+    n4 = st.number_input("항상협력자5",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
+    n5 = st.number_input("항상협력자6",placeholder="명 수를 작성하세요.", min_value=0, max_value=50, step=1, value=0)
+    gn= st.number_input("항상협력자7",placeholder="라운드 수를 작성하세요.", min_value=5, max_value=50, step=1, value=5)
     
 b1= st.button('결과 확인하기')
 with col2:
