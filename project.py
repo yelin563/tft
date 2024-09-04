@@ -312,14 +312,14 @@ if b1:
         cutoff_current = int(0.1 * total_strategies_current) if total_strategies_current >= 10 else 1
         top_10_cutoff_current = current_results['총점'].nlargest(cutoff_current).min()
     
-        current_results['상위 10% 여부'] = current_results['총점'] >= top_10_cutoff_current
+        current_results['상위권 여부'] = current_results['총점'] >= top_10_cutoff_current
     
         with col2:
             st.write("##### 현재 라운드 결과")
             st.dataframe(current_results.sort_values('총점', ascending=False, ignore_index=True), width=500, height=400)
     
         with col3:
-            st.write("##### 각 전략별 게임 수와 상위 10% 속한 경우의 수")
+            st.write("##### 각 전략별 게임 수와 상위권에 속한 경우의 수")
             st.dataframe(result_df.sort_values('게임 수', ascending=False, ignore_index=True), width=500, height=400)
 
     else:
