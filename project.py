@@ -285,7 +285,7 @@ with col2:
             lst1.append(n7)
             lst2.append('배신한 원한을 가진 자')
             
-         if len(lst1) > 1:
+        if len(lst1) > 1:
             # Run the tournament and update cumulative results
             new_results = tournament(lst1, lst2)
             
