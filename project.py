@@ -291,38 +291,37 @@ if b1:
         total_strategies = len(st.session_state.cumulative_results)
         cutoff = int(0.1 * total_strategies) if total_strategies >= 10 else 1
         top_10_cutoff = st.session_state.cumulative_results['총점'].nlargest(cutoff).min()
-
+    
         # Determine top 10% strategies
         st.session_state.cumulative_results['Top 10%'] = st.session_state.cumulative_results['총점'] >= top_10_cutoff
-
-        # Calculate probabilities
-        prob_df = st.session_state.cumulative_results.groupby('전략')['Top 10%'].mean().reset_index()
-        prob_df.columns = ['전략', 'Top 10% 확률']
-
-        # Display results
-        #st.write("### 누적 결과")
-        #st.dataframe(st.session_state.cumulative_results.sort_values('총점', ascending=False, ignore_index=True), width=500, height=400)
-        # Run the tournament and get the current round results
+    
+        # Calculate the number of games each strategy has participated in
+        games_played = st.session_state.cumulative_results.groupby('전략').size().reset_index(name='게임 수')
+    
+        # Calculate the number of times each strategy has been in the top 10%
+        top_10_occurrences = st.session_state.cumulative_results.groupby('전략')['Top 10%'].sum().reset_index(name='상위 10% 속한 경우의 수')
+    
+        # Merge the results into a single DataFrame
+        result_df = pd.merge(games_played, top_10_occurrences, on='전략')
+    
+        # Display the current round results
         current_results = tournament(lst1, lst2)
-        
-        # Ensure that the '총점' column is numeric
         current_results['총점'] = pd.to_numeric(current_results['총점'], errors='coerce')
-        
-        # Calculate top 10% cutoff for the current round
+    
         total_strategies_current = len(current_results)
         cutoff_current = int(0.1 * total_strategies_current) if total_strategies_current >= 10 else 1
         top_10_cutoff_current = current_results['총점'].nlargest(cutoff_current).min()
-        
-        # Add a new column to check if the strategy is in the top 10% for the current round
+    
         current_results['상위 10% 여부'] = current_results['총점'] >= top_10_cutoff_current
+    
         with col2:
-            # Display the current results with the top 10% check
             st.write("##### 현재 라운드 결과")
             st.dataframe(current_results.sort_values('총점', ascending=False, ignore_index=True), width=500, height=400)
-        
+    
         with col3:
-            st.write("##### 각 전략이 상위 10%에 속할 확률")
-            st.dataframe(prob_df.sort_values('Top 10% 확률', ascending=False, ignore_index=True), width=500, height=400)
+            st.write("##### 각 전략별 게임 수와 상위 10% 속한 경우의 수")
+            st.dataframe(result_df.sort_values('게임 수', ascending=False, ignore_index=True), width=500, height=400)
+
     else:
         st.write('적어도 두 명은 존재해야 합니다')
 
