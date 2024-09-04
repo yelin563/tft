@@ -313,9 +313,22 @@ with col2:
             # Run the tournament and get the current round results
             current_results = tournament(lst1, lst2)
             
-            # Display only the current results, not the cumulative results
-            st.write("### 현재 라운드 결과")
+            # Ensure that the '총점' column is numeric
+            current_results['총점'] = pd.to_numeric(current_results['총점'], errors='coerce')
+            
+            # Calculate top 10% cutoff for the current round
+            total_strategies_current = len(current_results)
+            cutoff_current = int(0.1 * total_strategies_current) if total_strategies_current >= 10 else 1
+            top_10_cutoff_current = current_results['총점'].nlargest(cutoff_current).min()
+            
+            # Add a new column to check if the strategy is in the top 10% for the current round
+            current_results['Top 10% 여부'] = current_results['총점'] >= top_10_cutoff_current
+            
+            # Display the current results with the top 10% check
+            st.write("### 현재 라운드 결과 (상위 10% 체크)")
             st.dataframe(current_results.sort_values('총점', ascending=False, ignore_index=True), width=500, height=400)
+            
+            
             st.write("### 각 전략이 상위 10%에 속할 확률")
             st.dataframe(prob_df.sort_values('Top 10% 확률', ascending=False, ignore_index=True), width=500, height=400)
         else:
