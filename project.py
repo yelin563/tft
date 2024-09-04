@@ -292,6 +292,9 @@ with col2:
             # Update cumulative results
             st.session_state.cumulative_results = pd.concat([st.session_state.cumulative_results, new_results])
             
+            # Ensure that the '총점' column is numeric before calculating the top 10%
+            st.session_state.cumulative_results['총점'] = pd.to_numeric(st.session_state.cumulative_results['총점'], errors='coerce')
+
             # Calculate top 10% cutoff
             total_strategies = len(st.session_state.cumulative_results)
             cutoff = int(0.1 * total_strategies) if total_strategies >= 10 else 1
