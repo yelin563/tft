@@ -299,7 +299,7 @@ if b1:
         games_played = st.session_state.cumulative_results.groupby('전략').size().reset_index(name='게임 수')
     
         # Calculate the number of times each strategy has been in the top 10%
-        top_10_occurrences = st.session_state.cumulative_results.groupby('전략')['Top 10%'].sum().reset_index(name='상위 10% 속한 경우의 수')
+        top_10_occurrences = st.session_state.cumulative_results.groupby('전략')['Top 10%'].sum().reset_index(name='상위권에 속한 경우의 수')
     
         # Merge the results into a single DataFrame
         result_df = pd.merge(games_played, top_10_occurrences, on='전략')
@@ -312,7 +312,7 @@ if b1:
         cutoff_current = int(0.1 * total_strategies_current) if total_strategies_current >= 10 else 1
         top_10_cutoff_current = current_results['총점'].nlargest(cutoff_current).min()
     
-        current_results['상위권 여부'] = current_results['총점'] >= top_10_cutoff_current
+        current_results['상위권'] = current_results['총점'] >= top_10_cutoff_current
     
         with col2:
             st.write("##### 현재 라운드 결과")
