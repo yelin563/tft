@@ -308,9 +308,14 @@ with col2:
             prob_df.columns = ['전략', 'Top 10% 확률']
 
             # Display results
-            st.write("### 누적 결과")
-            st.dataframe(st.session_state.cumulative_results.sort_values('총점', ascending=False, ignore_index=True), width=500, height=400)
-
+            #st.write("### 누적 결과")
+            #st.dataframe(st.session_state.cumulative_results.sort_values('총점', ascending=False, ignore_index=True), width=500, height=400)
+            # Run the tournament and get the current round results
+            current_results = tournament(lst1, lst2)
+            
+            # Display only the current results, not the cumulative results
+            st.write("### 현재 라운드 결과")
+            st.dataframe(current_results.sort_values('총점', ascending=False, ignore_index=True), width=500, height=400)
             st.write("### 각 전략이 상위 10%에 속할 확률")
             st.dataframe(prob_df.sort_values('Top 10% 확률', ascending=False, ignore_index=True), width=500, height=400)
         else:
